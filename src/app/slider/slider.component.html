@@ -1,0 +1,22 @@
+<div class="slider-conatiner">
+    <div class="slider-title">{{ label }}</div>
+    <input type="range" 
+        [max]="maxValue"
+        [min]="minValue"
+        [step]="stepValue"
+        [value]="initalValue"
+        (input)="onSliderChange($event)"
+        [style.--value]="progress"
+        [disabled]="disabled"
+    />
+    <div class="slider-value-wrapper" [style.--value]="progress">
+        <div class="slider-value">
+            {{currentValue | number:'1.1'}}
+        </div>
+    </div>
+    <div class="slider-scale" >
+        <span class="scale-marker" *ngFor="let val of markers">
+            <span class="marker-value">{{val}}</span>
+        </span>
+    </div>
+</div>
