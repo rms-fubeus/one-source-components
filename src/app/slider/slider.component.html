@@ -7,9 +7,10 @@
         [value]="initalValue"
         (input)="onSliderChange($event)"
         [style.--value]="progress"
+        [style.--gradient]="gradient"
         [disabled]="disabled"
     />
-    <div class="slider-value-wrapper" [style.--value]="progress">
+    <div class="slider-value-wrapper" [style.--value]="progress" [style.--color]="color">
         <div class="slider-value">
             {{currentValue | number:'1.1'}}
         </div>

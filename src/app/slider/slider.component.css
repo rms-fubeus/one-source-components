@@ -34,7 +34,7 @@ input[type="range"] {
     height: 18px;
     width: 18px;
     background-color: #fff;
-    transform: translateY(-3px);
+    transform: translateY(-3px) translateX(calc((var(--value)/2) - 35%));
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-clip: padding-box;
@@ -42,34 +42,32 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    position: absolute;
-    height: 12px;
-    cursor: pointer;
-    background: #fff;
-    background: linear-gradient(90deg, #F53F3F 0%, #F7BA1E 100%), #0056b820;
-    border-radius: 100px;
-    background-size: var(--value) 100%, calc(100% - var(--value)) 100%;
-    background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  height: 12px;
+  cursor: pointer;
+  background: var(--gradient);
+  border-radius: 100px;
+  background-size: var(--value) 100%, calc(100% - var(--value)) 100%;
+  background-repeat: no-repeat;
 }
 
 input[type=range]::-moz-range-track {
-    width: 100%;
-    position: absolute;
-    height: 12px;
-    cursor: pointer;
-    background: #fff;
-    background: linear-gradient(90deg, #F53F3F 0%, #F7BA1E 100%), #0056b820;
-    border-radius: 100px;
-    background-size: 70% 100%, 30% 100%;
-    background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  height: 12px;
+  cursor: pointer;
+  background: var(--gradient);
+  border-radius: 100px;
+  background-size: var(--value) 100%, calc(100% - var(--value)) 100%;
+  background-repeat: no-repeat;
 }
 
 .slider-value-wrapper {
     position: absolute;
     bottom: 40px;
     left: calc(var(--value) - (var(--value)/15 + 5px));
-    background-color: #F7BA1E;
+    background-color: var(--color);
     color: #fff;
     padding: 2px 5px;
     border-radius: 5px;
@@ -88,7 +86,7 @@ input[type=range]::-moz-range-track {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #F7BA1E transparent transparent transparent;
+    border-color: var(--color) transparent transparent transparent;
   }
 
 

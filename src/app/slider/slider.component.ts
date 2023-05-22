@@ -32,7 +32,11 @@ export class SliderComponent {
   }
 
   get progress() {
-    return `${(this.currentValue - this.minValue) / (this.maxValue - this.minValue) * 100}%`;
+    return `${this.getRatio() * 100}%`;
+  }
+
+  getRatio() {
+    return (this.currentValue - this.minValue) / (this.maxValue - this.minValue);
   }
 
   get markers() {
@@ -41,5 +45,29 @@ export class SliderComponent {
       markers.push(i);
     }
     return markers;
+  }
+  
+  lerpColor(ratio: number, color1: any, color2: any) {
+    
+    const r = Math.round((1 - ratio) * color1.r + ratio * color2.r);
+    const g = Math.round((1 - ratio) * color1.g + ratio * color2.g);
+    const b = Math.round((1 - ratio) * color1.b + ratio * color2.b);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  get color() {
+    const val = this.getRatio();
+    if (val >= 0.5) {
+      return this.lerpColor((val-0.5)*2, {r: 247, g: 186, b: 30}, {r: 0, g: 180, b: 42});
+    }
+    return this.lerpColor(val*2, {r:245, g:63, b:63}, {r: 247, g: 186, b: 30});
+  }
+
+  get gradient() {
+    if (this.getRatio() >= 0.5) {
+      const midPoint = (0.5/this.getRatio()) * 100;
+      return `linear-gradient(90deg, #f53f3f 0%, #f7ba1e ${midPoint}%, ${this.color} 100%), #0056b820`;
+    }
+    return `linear-gradient(90deg, #f53f3f 0%, ${this.color} 100%), #0056b820`;
   }
 }
