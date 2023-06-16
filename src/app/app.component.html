@@ -1,18 +1,94 @@
-<div class="container">
-  <app-slider
-    [maxValue]="5"
-    [minValue]="0"
-    [stepValue]="0.1"
-    [initalValue]="3.1"
-    [label] = "'Slider'"
+<div class="wrapper">
+  <div class="container">
+      <app-slider
+        [maxValue]="5"
+        [minValue]="0"
+        [stepValue]="0.1"
+        [initalValue]="3.1"
+        [label] = "'Slider'"
+      />
+    <hr>
+      <app-slider
+        [maxValue]="10"
+        [minValue]="0"
+        [stepValue]="1"
+        [initalValue]="value"
+        [disabled]="true"
+        [label] = "'Disabled Slider'"
+      />
+    <hr>
+    <label for="value">
+      <input class="custom" type="number" (input)="onValChange($event)" min="0" max="10" id="value" [value]="value">
+    </label>
+  </div>
+
+  <div class="container">
+    <app-score-bar
+      [max]="100"
+      [min]="0"
+      [value]="0"
+    />
+  <hr>
+    <app-score-bar
+      [max]="100"
+      [min]="0"
+      [value]="25"
+    />
+  <hr>
+  <app-score-bar
+      [max]="100"
+      [min]="0"
+      [value]="50"
+    />
+  <hr>
+  <app-score-bar
+      [max]="100"
+      [min]="0"
+      [value]="75"
+    />
+  <hr>
+  <app-score-bar
+      [max]="100"
+      [min]="0"
+      [value]="100"
+    />
+  <hr>
+
+  <app-score-bar
+    [max]="100"
+    [min]="0"
+    [value]="scoreValue"
   />
-<hr>
-  <app-slider
-    [maxValue]="10"
-    [minValue]="0"
-    [stepValue]="1"
-    [initalValue]="5"
-    [disabled]="true"
-    [label] = "'Disabled Slider'"
-  />
+  <hr>
+  <label for="scoreValue">
+    <input class="custom" type="number" (input)="onScoreValChange($event)" min="0" max="100" id="scoreValue" [value]="scoreValue">
+  </label>
+  </div>
+
+  <div class="container">
+    <app-score-circle
+      [max]="100"
+      [min]="0"
+      [value]="30"
+    />
+    <hr>
+    <app-score-circle
+      [max]="100"
+      [min]="0"
+      [value]="scoreCircleValue"
+    />
+    <hr>
+    <label for="scoreCircleValue">
+      <input class="custom" type="number" (input)="onScoreCircleValChange($event)" min="0" max="100" id="scoreCircleValue" [value]="scoreCircleValue">
+    </label>
+  </div>
+  <div class="container">
+    <app-liquid-circle [value]="80" />
+    <hr>
+    <app-liquid-circle [value]="liquidValue" />
+    <hr>
+    <label for="liquidValue">
+      <input class="custom" type="number" (input)="onLiquidValChange($event)" min="0" max="100" id="liquidValue" [value]="liquidValue">
+    </label>
+  </div>
 </div>

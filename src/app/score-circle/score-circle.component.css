@@ -1,0 +1,21 @@
+.circle-container {
+  display: inline-block;
+  margin: 1em;
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+svg circle {
+  stroke-dasharray: calc(2 * 3.14 * 100);
+  stroke-linecap: round;
+}
+svg circle:last-child {
+  stroke-dasharray: var(--dash);
+  stroke-dashoffset: calc(var(--dash)/2);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s;
+  stroke: var(--color);
+}
+svg {
+  transform: rotateZ(-90deg);
+}

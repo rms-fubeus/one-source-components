@@ -1,0 +1,17 @@
+<div class="circle-container" [style.--color]="color" [style.--value]="progress">
+    <div class="circle-content">
+        <svg class="wave" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.85" fill-rule="evenodd" clip-rule="evenodd" d="M-24.5 18.4806C-24.5 18.4806 41.0375 2.55563 96.6204 21.5471C152.203 40.5385 235.2 0.262695 235.2 0.262695V218.065H-12.6175L-24.5 18.4806Z"/>
+        </svg>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.295596" fill-rule="evenodd" clip-rule="evenodd" d="M-34.8135 39.1308C-34.8135 39.1308 46.2062 -14.2568 101.789 4.7346C157.372 23.726 224.788 15.4003 224.788 15.4003L224.887 214.215H-105.35L-101.208 55.2128L-34.8135 39.1308Z"/>
+        </svg>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd" d="M246.592 11.5301C246.592 11.5301 213.504 -11.1324 157.921 7.85904C102.338 26.8505 -28.1757 20.2622 -28.1757 20.2622L-13.1082 211.115H234.709L246.592 11.5301Z"/>
+        </svg>
+        <div class="text" [style.--textColor]="textColor">
+            {{percent}}<span>%</span>
+        </div>
+    </div>
+    
+</div>

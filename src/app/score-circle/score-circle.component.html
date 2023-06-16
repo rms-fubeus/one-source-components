@@ -1,0 +1,18 @@
+<div class="circle-container">
+    <svg width="120" height="120" [style.--dash]="dash" >
+        <defs>
+            <linearGradient id="Gradient1">
+                <stop offset="0%" stop-color="#f53f3f"></stop>
+                <stop offset="50%" stop-color="#f7ba1e"></stop>
+                <stop offset="100%" stop-color="#00B42A"></stop>
+            </linearGradient>
+        </defs>
+        <circle cx="60" cy="60" r="50" fill="transparent" stroke-width="12" stroke="#0056b820" />          
+        <circle cx="60" cy="60" r="50" fill="transparent" stroke-width="12" stroke="#000" [style.--color]="color" />
+    </svg>
+    <div class="circle-value-wrapper" [style.--value]="progress" [style.--color]="color">
+        <div class="circle-value">
+            {{value | number:'1.1'}}
+        </div>
+    </div>
+  </div>

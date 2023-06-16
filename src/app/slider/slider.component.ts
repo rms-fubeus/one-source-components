@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent {
+export class SliderComponent implements OnChanges {
   @Input() initalValue: number;
   @Input() maxValue: number;
   @Input() minValue: number;
@@ -14,13 +15,17 @@ export class SliderComponent {
   @Input() label: string;
   currentValue: any;
 
-  constructor() { 
+  constructor(private utilityService: UtilityService) { 
     this.initalValue = 0;
     this.maxValue = 100;
     this.minValue = 0;
     this.stepValue = 1;
     this.disabled = false;
     this.label = '';
+  }
+
+  ngOnChanges(changes: any) {
+    this.currentValue = changes.initalValue.currentValue;
   }
 
   ngOnInit() {
@@ -46,21 +51,13 @@ export class SliderComponent {
     }
     return markers;
   }
-  
-  lerpColor(ratio: number, color1: any, color2: any) {
-    
-    const r = Math.round((1 - ratio) * color1.r + ratio * color2.r);
-    const g = Math.round((1 - ratio) * color1.g + ratio * color2.g);
-    const b = Math.round((1 - ratio) * color1.b + ratio * color2.b);
-    return `rgb(${r}, ${g}, ${b})`;
-  }
 
   get color() {
     const val = this.getRatio();
     if (val >= 0.5) {
-      return this.lerpColor((val-0.5)*2, {r: 247, g: 186, b: 30}, {r: 0, g: 180, b: 42});
+      return this.utilityService.lerpColor((val-0.5)*2, {r: 247, g: 186, b: 30}, {r: 0, g: 180, b: 42});
     }
-    return this.lerpColor(val*2, {r:245, g:63, b:63}, {r: 247, g: 186, b: 30});
+    return this.utilityService.lerpColor(val*2, {r:245, g:63, b:63}, {r: 247, g: 186, b: 30});
   }
 
   get gradient() {
