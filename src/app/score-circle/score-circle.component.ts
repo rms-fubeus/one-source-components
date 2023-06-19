@@ -38,7 +38,7 @@ export class ScoreCircleComponent {
   }
 
   get dash() {
-    return 2 * Math.PI * this.getRatio() * 100;
+    return 2 * Math.PI * this.getRatio() * 50;
   }
 
   get gradient() {
